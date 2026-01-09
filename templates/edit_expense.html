@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Edit Expense{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card p-4">
+      <h4 class="mb-3">Edit Expense</h4>
+
+      <form method="post">
+        <input class="form-control mb-2" name="amount" value="{{ expense.amount }}" required>
+        <input class="form-control mb-2" name="category" value="{{ expense.category }}" required>
+        <input class="form-control mb-2" type="date" name="expense_date" value="{{ expense.expense_date }}" required>
+        <input class="form-control mb-3" name="description" value="{{ expense.description }}">
+        <button class="btn btn-primary w-100">Update Expense</button>
+      </form>
+
+      <a href="/dashboard" class="d-block text-center mt-3">Cancel</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

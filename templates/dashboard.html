@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h3>Welcome, {{ session.username }} 👋</h3>
+  <a href="/logout" class="btn btn-outline-danger btn-sm">Logout</a>
+</div>
+
+<div class="row">
+  <!-- Add Expense -->
+  <div class="col-md-4">
+    <div class="card p-3 mb-4">
+      <h5>Add Expense</h5>
+      <form method="post" action="/add-expense">
+        <input class="form-control mb-2" name="amount" placeholder="Amount ₹" required>
+        <input class="form-control mb-2" name="category" placeholder="Category" required>
+        <input class="form-control mb-2" type="date" name="expense_date" required>
+        <input class="form-control mb-3" name="description" placeholder="Description (optional)">
+        <button class="btn btn-primary w-100">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Expense List -->
+  <div class="col-md-8">
+    <h5>Your Expenses</h5>
+
+    {% if expenses %}
+      {% for e in expenses %}
+        <div class="card p-3 mb-3">
+          <div class="d-flex justify-content-between">
+            <div>
+              <strong>{{ e.category }}</strong><br>
+              <small class="text-muted">{{ e.expense_date }}</small>
+            </div>
+            <div class="text-primary fw-bold">₹{{ e.amount }}</div>
+          </div>
+
+          {% if e.description %}
+            <div class="text-muted mt-2">{{ e.description }}</div>
+          {% endif %}
+
+         <div class="mt-2">
+  <a href="/edit-expense/{{ e.id }}" class="me-3">Edit</a>
+  <a href="/delete-expense/{{ e.id }}" class="text-danger">Delete</a>
+</div>
+
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="text-muted">No expenses added yet.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
