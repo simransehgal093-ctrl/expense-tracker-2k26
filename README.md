@@ -61,11 +61,19 @@ http://127.0.0.1:5000
 Test Cases
 
 User can register with valid username, email, and password
+
 Passwords are stored in hashed format
+
 User can login with correct credentials
+
 Invalid login shows error message
+
 Unauthenticated user cannot access dashboard
+
 Logged-in user can add an expense
+
 Logged-in user can edit an expense
+
 Logged-in user can delete an expense
+
 User can logout successfully
