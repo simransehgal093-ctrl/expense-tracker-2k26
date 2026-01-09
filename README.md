@@ -16,7 +16,7 @@ A simple and secure Expense Tracker web application built using **Flask** and **
 - Frontend: HTML, Bootstrap
 - Authentication: Werkzeug password hashing
 
-## Project Structure
+```## Project Structure 
 expense-tracker-2k26/
 ├── app.py
 ├── requirements.txt
@@ -27,9 +27,9 @@ expense-tracker-2k26/
 │ ├── dashboard.html
 │ └── edit_expense.html
 └── venv/
+```
 
-
-## Setup Instructions
+```## Setup Instructions
 
 1. Clone the repository
 git clone <repository-url>
@@ -54,11 +54,11 @@ python app.py
 Open browser
 
 
-http://127.0.0.1:5000
+http://127.0.0.1:5000```
 
 
 
-Test Cases
+**Test Cases**
 
 User can register with valid username, email, and password
 
