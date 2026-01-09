@@ -5,11 +5,11 @@ import mysql.connector
 app = Flask(__name__)
 app.secret_key = "expense-tracker-2k26-secret-key"
 
-# ✅ MySQL configuration (mysql-connector)
+
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "Sim@12345678",   # your MySQL password
+    "password": "Sim@12345678",   
     "database": "expense_tracker_2k26"
 }
 
@@ -17,7 +17,7 @@ def get_db_connection():
     return mysql.connector.connect(**db_config, buffered=True)
 
 
-# 🔍 Test route
+# this is my Test route
 @app.route("/test-db")
 def test_db():
     try:
@@ -35,7 +35,7 @@ def test_db():
 def home():
     return "Expense Tracker 2k26 is running 🚀"
 
-# 📝 Register
+# this is for Registeration
 @app.route("/register", methods=["GET", "POST"])
 def register():
     error = None
@@ -193,7 +193,7 @@ def edit_expense(id):
 
         return redirect(url_for("dashboard"))
 
-    # GET request → fetch existing expense
+    # here fetching existing expense
     cursor.execute(
         "SELECT * FROM expenses WHERE id = %s AND user_id = %s",
         (id, session["user_id"])
